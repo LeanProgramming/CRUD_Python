@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    {{ super() }}
+    Bienvenides
+{% endblock %}
+
+{% block content %}
+    <div id="error_block">
+        <div id="error_img">
+            <img src="{{ url_for('static', filename = 'img/data-extraction.gif') }}" alt="Hands typing">
+        </div>
+        <div id="error_txt">
+            <h1 class="error">Sistema CRUD</h1>
+            <h2>Trabajo Integrador</h2>
+            <h3>FullStack Python/Flask</h3>
+            <p>Comienza por <a class='imp_link' href="{{ url_for('display') }}">revisar el contenido de la base de datos</a></p>
+        </div>
+    </div>
+{% endblock %}

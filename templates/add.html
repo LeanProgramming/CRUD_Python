@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% import 'bootstrap/wtf.html' as wtf  %}
+
+{% block title %}
+    {{ super() }}
+    Agregar datos
+{% endblock %}
+
+{% block section %}
+    <h1 class="title">Ingresar nuevo usuario</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container form">
+        {{ wtf.quick_form(formulario) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    {{ super() }}
+    Mostrar Datos
+{% endblock %}
+
+{% block section %}
+    <h1 class="title">Lista de usuarios</h1>
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped table-info text-center">
+        <thead>
+            <tr class="bg-info">
+                <th scope="col" class="text-center">Apellido</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Ciudad</th>
+                <th scope="col" class="text-center">Provincia</th>
+                <th scope="col" class="text-center">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in db_list %}
+                <tr>
+                   <td>{{ p[2] }}</td>
+                   <td>{{ p[1] }}</td> 
+                   <td>{{ p[3] }}</td> 
+                   <td>{{ p[4] }}</td> 
+                   <td> 
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-sm btn-warning" value="{{ p[0] }}">
+                            <i class="far fa-edit"></i>
+                            <a href="{{ url_for('edit', id = p[0]) }}">Editar</a>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger" value="{{ p[0] }}">
+                            <i class="far fa-trash-alt"></i>
+                            <a href="{{ url_for('delete', id = p[0]) }}">Borrar</a>
+                        </button>
+                    </div>
+                    </td> 
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

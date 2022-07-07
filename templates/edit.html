@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    {{ super() }}
+    Editar Usuario
+{% endblock %}
+
+{% block section %}
+    <h1 class="title">Editar datos de {{ person[1] }} {{ person[2] }} </h1>
+{% endblock %}
+
+<!-- 
+    Si necesito hacer el formulario flask de forma manual
+    {{ formulario.csrf_token }}
+    {{ formulario.apellido.label }}
+    {{ formulario.apellido }}
+    {{ formulario.nombre.label }}
+    {{ formulario.apellido }}
+    {{ formulario.locacion.label }}
+    {{ formulario.apellido }}
+ -->
+
+{% block content %}
+<div class="container form">
+    {{ wtf.quick_form(formulario) }}
+</div>
+{% endblock %}
